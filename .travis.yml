@@ -1,11 +1,8 @@
 language: java
-sudo: true
-dist: bionic
+# sudo: true
+# dist: bionic
 jdk:
   - oraclejdk12
-
-before_install:
-  - chmod +x mvnw
 
 script: ./mvnw clean install
 
@@ -13,6 +10,9 @@ jobs:
   include:
     -stage: Test
     script: ./mvnw clean test
+
+before_install:
+  - chmod +x mvnw
 
 notifications:
   email: darshlin714@gmail.com
