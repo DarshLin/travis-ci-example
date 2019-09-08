@@ -2,7 +2,7 @@ language: java
 sudo: true
 dist: bionic
 jdk:
-  - oraclejdk12
+  - openjdk8
 
 before_install:
   - chmod +x mvnw
