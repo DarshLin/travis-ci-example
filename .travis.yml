@@ -9,10 +9,10 @@ before_install:
 
 script: ./mvnw clean install
 
-jobs:
-  include:
-    -stage: Test
-    script: ./mvnw clean test
+    jobs:
+      include:
+        -stage: Test
+        script: ./mvnw clean test
 
 notifications:
   email: darshlin714@gmail.com
