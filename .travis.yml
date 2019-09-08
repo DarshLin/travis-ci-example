@@ -1,17 +1,27 @@
-- language: java
 
-jdk:
+matrix:
+  include:
+  - language: java
+    jdk:
   - oraclejdk12
-  
-  before_install:
+    before_install:
   - chmod +x mvnw
+    script: ./mvnw clean install
 
-  script: ./mvnw clean install
+    jobs:
+      include:
+        -stage: Test
+        script: ./mvnw clean test
+
+  -language: python
+    python:
+      - "3.7"
+    cache: pip
+    install: "pip install sphinx"
+    script: sphinx-build -nWT -b ._build/html
+
+    
   
-  jobs:
-    include:
-      -stage: Test
-      script: ./mvnw clean test
 
 notifications:
   email: darshlin714@gmail.com
